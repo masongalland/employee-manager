@@ -34,6 +34,15 @@ class EmployeeEditor extends Component {
     var employeeCopy = Object.assign({}, this.state.originalEmployee);
     this.setState({ employee: employeeCopy, notModified: true });
   }
+
+  componentWillReceiveProps(nextProps) {
+    this.setState({
+      employee: Object.assign({}, nextProps.selected),
+      originalEmployee: nextProps.selected,
+      notModified: true
+    });
+  }
+  
   
   render() {
     return (
